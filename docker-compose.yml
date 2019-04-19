@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  application:
+    build: ./provisioning
+    image: laravel-api
+    links:
+      - mysql
+      - phpmyadmin
+    volumes:
+      - ./application:/application:cached
+    environment:
+      PMA_HOST: mysql
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    volumes:
+      - ./storage/tmp/db:/var/lib/mysql:cached
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    ports:
+      - 8001:80
+    environment:
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      PMA_HOST: mysql
+
+  nginx:
+    image: nginx
+    ports:
+      - "80:8000"
+    volumes:
+      - ./provisioning/nginx.conf:/etc/nginx/conf.d/default.conf:cached
+      - ./application:/application:cached
+    depends_on:
+      - application
