@@ -3,7 +3,7 @@ version: '3'
 services:
   application:
     build: ./provisioning
-    image: laravel-api
+    image: local-docker-wordpress
     links:
       - mysql
       - phpmyadmin
