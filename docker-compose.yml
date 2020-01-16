@@ -3,7 +3,7 @@ version: '3'
 services:
   application:
     build: ./provisioning
-    image: local-docker-wordpress
+    image: local-docker-laravel
     links:
       - mysql
       - phpmyadmin
@@ -17,9 +17,9 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - ./storage/tmp/db:/var/lib/mysql:cached
@@ -31,8 +31,8 @@ services:
     ports:
       - 8001:80
     environment:
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
       PMA_HOST: mysql
 
   nginx:

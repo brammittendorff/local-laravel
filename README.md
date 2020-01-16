@@ -16,9 +16,9 @@ https://docs.docker.com/compose/install/
 
 ## Setup files
 
-#### Download wordpress files
+#### Download the laravel files
 
-Download wordpress files and move them to folder `application/public/`.
+Download laravel files and move them to folder `application/public/`.
 
 #### Download database dump
 
@@ -26,7 +26,7 @@ Download the database dump, you can export it from phpmyadmin for example. And m
 
 
 
-## Installation of wordpress site
+## Installation of laravel site
 
 #### Run the instance
 
@@ -36,7 +36,7 @@ Move to the folder where you unzipped this package. And run:
 docker-compose up --build
 ```
 
-Navigate in the browser to http://localhost:8001. Click on the database in the left menu called wordpress. Then go to the menu item import at the top. Then select the database dump in the folder `db_dump`. Please wait until it is has finished because this may take a while.
+Navigate in the browser to http://localhost:8001. Click on the database in the left menu called laravel. Then go to the menu item import at the top. Then select the database dump in the folder `db_dump`. Please wait until it is has finished because this may take a while.
 
 #### Set mysql server ip to wp-config.php:
 
