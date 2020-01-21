@@ -25,4 +25,20 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * Register user
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * User login
+     */
+    public function login()
+    {
+        return view('home');
+    }
 }
