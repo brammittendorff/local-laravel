@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class questions extends Model
+class Questions extends Model
 {
     // Mass Assignment
     protected $fillable = [
