@@ -16,3 +16,26 @@
 
     @yield('head')
 </head>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">H4ck3d.</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Uitklappen navigatie">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('home') }}">Home</a>
+            </li>
+            @unless (Auth::check())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Inloggen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">Registreren</a>
+                </li>
+            @endunless
+        </ul>
+    </div>
+</nav>
