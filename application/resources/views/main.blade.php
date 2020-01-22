@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 @include('header')
@@ -6,4 +5,5 @@
     @yield('content')
 </body>
 @include('scripts')
+
 </html>
