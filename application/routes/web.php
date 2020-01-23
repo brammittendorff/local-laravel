@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,13 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')
+    ->name('logout');
+
+Route::get('/dashboard', 'DashboardController@index')
+    ->name('dashboard')
+    ->middleware('auth');
