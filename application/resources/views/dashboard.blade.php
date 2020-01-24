@@ -14,7 +14,12 @@
                             </div>
                         @endif
 
-                        Je bent ingelogd.
+                        @foreach ($questions as $question)
+                            <h5 class="card-title">{{ $question->question }}</h5>
+                            <p class="card-text">{{ $question->description }}</p>
+                        @endforeach
+
+                        {{ $questions->links() }}
                     </div>
                 </div>
             </div>
