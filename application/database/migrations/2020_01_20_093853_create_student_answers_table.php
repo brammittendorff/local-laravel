@@ -15,7 +15,7 @@ class CreateStudentAnswersTable extends Migration
     {
         Schema::create('student_answers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('student_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->integer('answer_id')->unsigned()->nullable();
             $table->timestamps();
         });

@@ -17,6 +17,7 @@ class CreateAnswersTable extends Migration
             $table->bigIncrements('id');
             $table->longText('answer');
             $table->tinyInteger('score');
+            $table->integer('question_id');
             $table->tinyInteger('is_deleted')->default(0);
             $table->timestamps();
         });

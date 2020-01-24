@@ -10,4 +10,9 @@ class Answers extends Model
     protected $fillable = [
         'answer', 'score'
     ];
+
+    public function studentAnswers()
+    {
+        return $this->belongsToMany('App\StudentAnswers');
+    }
 }

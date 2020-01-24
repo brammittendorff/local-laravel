@@ -10,4 +10,9 @@ class Questions extends Model
     protected $fillable = [
         'question', 'description'
     ];
+
+    public function answers()
+    {
+        return $this->hasMany('App\Answers');
+    }
 }
