@@ -17,7 +17,25 @@
                         @foreach ($questions as $question)
                             <h5 class="card-title">{{ $question->question }}</h5>
                             <p class="card-text">{{ $question->description }}</p>
+
+                            <form method="POST" action="{{ route('login') }}">
+                                @foreach ($question->answers as $key => $answer)
+                                <div class="form-group row">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="answer" id="radio{{ $key }}" value="option{{ $key }}">
+                                        <label class="form-check-label" for="radio{{ $key }}">
+                                            {{ $answer->answer }}
+                                        </label>
+                                    </div>
+                                </div>
+                                @endforeach
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Opslaan') }}
+                                </button>
+                            </form>
                         @endforeach
+
+                        <hr>
 
                         {{ $questions->links() }}
                     </div>

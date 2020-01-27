@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Questions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,7 +25,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $questions = DB::table('questions')->paginate(1);
+        $questions = Questions::paginate(1);
         return view('dashboard', ['questions' => $questions]);
     }
 }
