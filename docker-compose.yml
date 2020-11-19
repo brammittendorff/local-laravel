@@ -8,9 +8,20 @@ services:
       - mysql
       - phpmyadmin
     volumes:
+      - "./composer:/composer"
       - ./application:/application:cached
     environment:
       PMA_HOST: mysql
+
+  composer:
+    image: composer/composer:latest
+    ports:
+      - "9001:9000"
+    volumes:
+      - "./compser:/composer"
+    container_name: composer
+    working_dir: /composer
+    command: install
 
   mysql:
     image: mysql:5.7
